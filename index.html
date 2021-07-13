@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body style="background-image: url(./background.jfif);background-position: center;background-size: cover;">
+    <div class="container">;
+        <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color:rgb(109, 33, 189);">Weather App</h1>
+                
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <input type="text" placeholder="Enter city name" id="city">
+                <button class="btn btn-success" onclick="fetchCity()">FetchData</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row" id="result">
+           
+        </div>
+
+
+</body>
+
+<script>
+
+    function populate(city){
+        let name=city.name;
+        let temperature=city.main.temp;
+        let weather=city.weather[0].description;
+        let humidity=city.main.humidity;
+        let html_data=`<div class="card w-25"style="background-color:  cyan;">
+  <div class="card-body">
+    <h5 class="card-title"> City Name :</h5>
+    <p class="card-text"><h4>${name}</h4></p><img src="./city.png" alt="Noimage"style="width: 50%;height: 120px;margin-left:120px;"><br></div></div>
+    <div class="card w-25"style="background-color: cyan;">
+  <div class="card-body">
+    <h5 class="card-title">Temperature :</h5>
+    <p class="card-text"><h4>${temperature} Degree C </h4></p><img src="./temp.png" alt="Noimage"style="width: 50%;height: 120px;margin-left:120px"></div></div>
+    <div class="card w-25"style="background-color: cyan;">
+  <div class="card-body">
+    <h5 class="card-title"> Weather :</h5>
+    <p class="card-text"><h4>${weather}</h4></p><img src="./weather.png" alt="Noimage" style="width: 50%;height: 120px;margin-left:120px"></div></div>
+    <div class="card w-25"style="background-color:  cyan;">
+  <div class="card-body">
+    <h5 class="card-title">Humidity :</h5>
+    <p class="card-text"><h4>${humidity}%</h4></p><img src="./humidity.png" alt="Noimage"style="width: 50%;height: 120px;margin-left:120px"></div></div>`;
+
+        result.innerHTML=html_data;
+
+    }
+
+    function fetchCity() {
+        let city_name = city.value;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=7058dc997d10741b59ff14f5068a1cea&units=metric`
+        fetch(url).then(res=>res.json()).then(data=>populate(data))
+    }
+
+
+</script>
+
+
+
+
+</html>
