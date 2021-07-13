@@ -17,7 +17,7 @@
         <div class="row mt-5">
             <div class="col-4"></div>
             <div class="col-4">
-                <h1 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color:rgb(109, 33, 189);">Weather App</h1>
+                <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: black;">Weather App</h1>
                 
             </div>
             <div class="col-4"></div>
@@ -44,21 +44,21 @@
         let temperature=city.main.temp;
         let weather=city.weather[0].description;
         let humidity=city.main.humidity;
-        let html_data=`<div class="card w-25"style="background-color:  cyan;">
+        let html_data=`<div class="card w-25"style="background-color: #2793d4;">
   <div class="card-body">
-    <h5 class="card-title"> City Name :</h5>
-    <p class="card-text"><h4>${name}</h4></p><img src="./city.png" alt="Noimage"style="width: 50%;height: 120px;margin-left:120px;"><br></div></div>
-    <div class="card w-25"style="background-color: cyan;">
+    <h2 class="card-title"> City Name :</h2>
+    <p class="card-text"><h4>${name}</h4></p><img src="./city1.png" alt="Noimage"style="width: 50%;height: 120px;margin-left:120px"><br></div></div>
+    <div class="card w-25"style="background-color: #2793d4;">
   <div class="card-body">
-    <h5 class="card-title">Temperature :</h5>
-    <p class="card-text"><h4>${temperature} Degree C </h4></p><img src="./temp.png" alt="Noimage"style="width: 50%;height: 120px;margin-left:120px"></div></div>
-    <div class="card w-25"style="background-color: cyan;">
+    <h2 class="card-title">Temperature :</h2>
+    <p class="card-text"><h4>${temperature} Degree C </h4></p><img src="./temperature.png" alt="Noimage"style="width: 50%;height: 120px;margin-left:120px"></div></div>
+    <div class="card w-25"style="background-color: #2793d4;">
   <div class="card-body">
-    <h5 class="card-title"> Weather :</h5>
+    <h2 class="card-title"> Weather :</h2>
     <p class="card-text"><h4>${weather}</h4></p><img src="./weather.png" alt="Noimage" style="width: 50%;height: 120px;margin-left:120px"></div></div>
-    <div class="card w-25"style="background-color:  cyan;">
+    <div class="card w-25"style="background-color:  #2793d4">
   <div class="card-body">
-    <h5 class="card-title">Humidity :</h5>
+    <h2 class="card-title">Humidity :</h2>
     <p class="card-text"><h4>${humidity}%</h4></p><img src="./humidity.png" alt="Noimage"style="width: 50%;height: 120px;margin-left:120px"></div></div>`;
 
         result.innerHTML=html_data;
